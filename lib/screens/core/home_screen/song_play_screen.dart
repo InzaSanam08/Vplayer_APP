@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vplayer/screens/core/home_screen/widget/new_box.dart';
+import 'package:provider/provider.dart';
+import 'package:vplayer/modal/provider_playList.dart';
 
 class Now_Playing_Screen extends StatefulWidget {
   const Now_Playing_Screen({super.key});
@@ -11,15 +12,25 @@ class Now_Playing_Screen extends StatefulWidget {
 class _Now_Playing_ScreenState extends State<Now_Playing_Screen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-        title: const Text(
-          'N O W  P L A Y I N G',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Center(child: Neu_Box(child: Icon(Icons.search,size: 100,)),)
-    );
+    return Consumer<PlaylistProvider>(builder: (context, watch, child) {
+      return SafeArea(
+        child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        body:Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+             IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back)),
+             Text('P L A Y  L I S T'),
+             IconButton(onPressed: (){}, icon: Icon(Icons.menu))      
+        
+                   ],
+            )
+          ],
+        )
+            ),
+      );
+    })
   }
 }
