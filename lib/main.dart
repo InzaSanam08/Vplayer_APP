@@ -10,8 +10,8 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create:(_)=>ThemeProvider(),),
      ChangeNotifierProvider(create: (_)=>PlaylistProvider())
-
-  ],child: MyApp()));
+  ],
+  child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

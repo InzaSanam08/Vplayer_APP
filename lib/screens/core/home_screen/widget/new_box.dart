@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Neu_Box extends StatelessWidget {
   final Widget? child;
@@ -24,6 +25,11 @@ class Neu_Box extends StatelessWidget {
         ],
       ),
       child: child,
+      height: 300.h,
+      width: 300.w,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
     );
   }
 }
