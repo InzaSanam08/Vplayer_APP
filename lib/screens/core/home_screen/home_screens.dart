@@ -17,7 +17,7 @@ class _Playlist_ScreenState extends State<Playlist_Screen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: const Text(' L A Y  L I S T ' , style: TextStyle(fontWeight: FontWeight.bold),),
+        title: const Text('P L A Y  L I S T ' , style: TextStyle(fontWeight: FontWeight.bold),),
       
       ),drawer: MyDrawer(),
       body: Consumer<PlaylistProvider>(builder: (context, value, child) {
