@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vplayer/modal/provider_playList.dart';
 import 'package:vplayer/modal/song.dart';
+import 'package:vplayer/screens/core/home_screen/song_play_screen.dart';
 import 'package:vplayer/screens/core/home_screen/widget/mydrawer.dart';
 
 class Playlist_Screen extends StatefulWidget {
@@ -14,14 +15,19 @@ class Playlist_Screen extends StatefulWidget {
 
 class _Playlist_ScreenState extends State<Playlist_Screen> {
 
+
+
+late final dynamic playlistProvider;
 @override
   void initState() {
-    // TODO: implement initState
-    final playlistProvider = Provider.of<PlaylistProvider>(context, listen: false);
+  playlistProvider = Provider.of<PlaylistProvider>(context, listen: false);
   }
 
-void gotosong(int songIndex ){
-  playlistProvider.playSong(songIndex);
+void gotosong(int songIndex,  ){
+  playlistProvider.currentsongIndex = songIndex;
+
+Navigator.push(context, MaterialPageRoute(builder: (context) => Now_Playing_Screen()));
+
 }
 
 
@@ -55,8 +61,9 @@ void gotosong(int songIndex ){
                 child: Image.asset(song.albumArtImagePath, 
                 fit: BoxFit.contain, width: 70.w, height: 70.h
                 ),
-              ),  
-            
+              ),
+              onTap: () => gotosong(index,),
+
             );
           },
         ); 

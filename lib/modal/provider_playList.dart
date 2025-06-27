@@ -73,10 +73,14 @@ final List<Song> _playlists = [
 ];
 
 int? _currentsongIndex;
+
+
 List<Song> get playlists => _playlists;
+
 int? get currentsongIndex => _currentsongIndex;
-set currentsongIndex(int? index) {
-  _currentsongIndex = index;
+
+set currentsongIndex(int? newindex) {
+  _currentsongIndex = newindex;
   notifyListeners();
 
 
