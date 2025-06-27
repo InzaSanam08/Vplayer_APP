@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vplayer/modal/provider_playList.dart';
 import 'package:vplayer/modal/song.dart';
@@ -12,6 +13,20 @@ class Playlist_Screen extends StatefulWidget {
 }
 
 class _Playlist_ScreenState extends State<Playlist_Screen> {
+
+@override
+  void initState() {
+    // TODO: implement initState
+    final playlistProvider = Provider.of<PlaylistProvider>(context, listen: false);
+  }
+
+void gotosong(int songIndex ){
+  playlistProvider.playSong(songIndex);
+}
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +51,10 @@ class _Playlist_ScreenState extends State<Playlist_Screen> {
                 song.artistName,
                 style: const TextStyle(fontSize: 16),
               ),
-              leading:Image.asset(song.albumArtImagePath, 
-              // fit: BoxFit.cover, width: 50, height: 50
+              leading:Container(
+                child: Image.asset(song.albumArtImagePath, 
+                fit: BoxFit.contain, width: 70.w, height: 70.h
+                ),
               ),  
             
             );
